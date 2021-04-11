@@ -1,0 +1,25 @@
+{
+  "name": "lerpv",
+  "version": "1.0.0",
+  "description": "Linux, Nginx, Redis, Php, Varnish stack",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasperalani/LERPV.git"
+  },
+  "author": "Jasper Alani <jasperalani@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jasperalani/LERPV/issues"
+  },
+  "homepage": "https://github.com/jasperalani/LERPV#readme",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-changed": "^4.0.2",
+    "gulp-minify": "^3.1.0",
+    "gulp-sass": "^4.1.0"
+  }
+}

@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+
+  nginx:
+    image: 'nginx:1.13.6'
+    container_name: ${APP_NAME}-nginx
+    links:
+      - 'php'
+    networks:
+      - website
+    volumes:
+      - '../build:/var/www/html'
+      - './config/nginx:/etc/nginx/conf.d'
+    ports:
+      - '80:80'
+
+  php:
+    build:
+      context: ./
+      dockerfile: php.Dockerfile
+    container_name: ${APP_NAME}-php
+    networks:
+      - website
+    volumes:
+      - '../build:/var/www/html'
+    links:
+      - 'redis'
+
+  varnish:
+    build:
+      context: ./
+      dockerfile: varnish.Dockerfile
+    container_name: ${APP_NAME}-varnish
+    networks:
+      - website
+
+  redis:
+    image: 'redis'
+    container_name: ${APP_NAME}-redis
+    networks:
+      - website
+
+networks:
+  website:
